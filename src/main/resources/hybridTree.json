@@ -1,0 +1,128 @@
+{
+  "id": "HYBRID-ORCHESTRATOR-PATH",
+  "level": 0,
+  "num" : 0,
+  "type": "SELECT",
+  "action": {
+    "id": "SELECT-TICKET-TYPE",
+    "type" : "api"
+  },
+  "decisions": [
+    {
+      "id": "node",
+      "level": 1,
+      "num": 1,
+      "type": "ALL",
+      "action": {
+        "id": "EXECUTE-FLIGHT-BOOKING",
+        "type" : "api"
+      },
+      "decisions": [
+        {
+          "id": "node",
+          "level": 2,
+          "num": 1,
+          "type": "ALL",
+          "action": {
+            "id": "CHECK-FLIGHT-AVAILABILITY",
+            "type" : "api"
+          }
+        },
+        {
+          "id": "node",
+          "level": 2,
+          "num": 2,
+          "type": "ALL",
+          "action": {
+            "id": "BOOK-TICKET",
+            "type" : "api"
+          }
+        }
+      ]
+    },
+    {
+      "id": "node",
+      "level": 1,
+      "num": 2,
+      "type": "ALL",
+      "action": {
+        "id": "EXECUTE-CAB-BOOKING",
+        "type" : "api"
+      },
+      "decisions": [
+        {
+          "id": "node",
+          "level": 2,
+          "num": 1,
+          "type": "ALL",
+          "action": {
+            "id": "CHECK-CAB-AVAILABILITY",
+            "type" : "api"
+          }
+        },
+        {
+          "id": "node",
+          "level": 2,
+          "num": 2,
+          "type": "ALL",
+          "action": {
+            "id": "RESERVER-CAB",
+            "type" : "api"
+          }
+        },
+        {
+          "id": "node",
+          "level": 2,
+          "num": 3,
+          "type": "ALL",
+          "action": {
+            "id": "BOOK-CAB",
+            "type" : "api"
+          }
+        }
+      ]
+    },
+    {
+      "id": "node",
+      "level": 1,
+      "num": 3,
+      "type": "ALL",
+      "action": {
+        "id": "EXECUTE-BIKE-BOOKING",
+        "type" : "api"
+      },
+      "decisions": [
+        {
+          "id": "node",
+          "level": 2,
+          "num": 1,
+          "type": "ALL",
+          "action": {
+            "id": "CHECK-BIKE-AVAILABILITY",
+            "type" : "api"
+          }
+        },
+        {
+          "id": "node",
+          "level": 2,
+          "num": 2,
+          "type": "ALL",
+          "action": {
+            "id": "RESERVE-BIKE",
+            "type" : "api"
+          }
+        },
+        {
+          "id": "node",
+          "level": 2,
+          "num": 3,
+          "type": "ALL",
+          "action": {
+            "id": "BOOK-BIKE",
+            "type" : "api"
+          }
+        }
+      ]
+    }
+  ]
+}

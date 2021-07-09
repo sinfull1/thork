@@ -1,0 +1,127 @@
+{
+  "id": "ORDER-ORCHESTRATOR-PATH",
+  "level": 0,
+  "num" : 0,
+  "type": "ALL",
+  "action": {
+    "id": "INITIALIZE-ORCHESTRATION"
+  },
+  "decisions": [
+    {
+      "id": "node",
+      "level": 1,
+      "num": 1,
+      "type": "ALL",
+      "action": {
+        "id": "ORDER-ACTION-1",
+        "type" : "api"
+      },
+      "decisions": [
+        {
+          "id": "node",
+          "level": 2,
+          "num": 1,
+          "type": "ALL",
+          "action": {
+            "id": "VALIDATE-BUY-ORDER",
+            "type" : "api"
+          }
+        },
+        {
+          "id": "node",
+          "level": 2,
+          "num": 2,
+          "type": "ALL",
+          "action": {
+            "id": "PREPARE-BUY-ORDER",
+            "type" : "api"
+          }
+        }
+      ]
+    },
+    {
+      "id": "node",
+      "level": 1,
+      "num": 2,
+      "type": "ALL",
+      "action": {
+        "id": "ORDER-ACTION-2",
+        "type" : "api"
+      },
+      "decisions": [
+        {
+          "id": "node",
+          "level": 2,
+          "num": 1,
+          "type": "ALL",
+          "action": {
+            "id": "CHECK-BUY-ORDER-EXISTS-IN-DB",
+            "type" : "api"
+          }
+        },
+        {
+          "id": "node",
+          "level": 2,
+          "num": 2,
+          "type": "ALL",
+          "action": {
+            "id": "CHECK-BUY-ORDER-PRICE-RANGE",
+            "type" : "api"
+          }
+        },
+        {
+          "id": "node",
+          "level": 2,
+          "num": 3,
+          "type": "ALL",
+          "action": {
+            "id": "CHECK-BUY-ORDER-QUANTITY",
+            "type" : "api"
+          }
+        }
+      ]
+    },
+    {
+      "id": "node",
+      "level": 1,
+      "num": 3,
+      "type": "ALL",
+      "action": {
+        "id": "ORDER-ACTION-3",
+        "type" : "api"
+      },
+      "decisions": [
+        {
+          "id": "node",
+          "level": 2,
+          "num": 1,
+          "type": "ALL",
+          "action": {
+            "id": "RESERVE-BUY-ORDER-QUANTITY",
+            "type" : "api"
+          }
+        },
+        {
+          "id": "node",
+          "level": 2,
+          "num": 2,
+          "type": "ALL",
+          "action": {
+            "id": "RESERVE-BUY-ORDER-MONEY",
+            "type" : "api"
+          }
+        },
+        {
+          "id": "node",
+          "level": 2,
+          "num": 3,
+          "type": "ALL",
+          "action": {
+            "id": "EXECUTE-BUY-ORDER-QUANTITY",
+            "type" : "api"
+          }
+        }
+      ]
+    }
+  ]
+}

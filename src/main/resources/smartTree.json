@@ -1,0 +1,127 @@
+{
+  "id": "CONDITIONAL-ORCHESTRATION",
+  "level": 0,
+  "num" : 0,
+  "type": "SELECT",
+  "action": {
+    "id": "CHECK-TICKET_TYPE",
+    "type" : "api"
+  },
+  "decisions": [
+    {
+      "id": "node",
+      "level": 1,
+      "num": 1,
+      "type": "SELECT",
+      "action": {
+        "id": "CHECK-FLIGHT",
+        "type" : "api"
+      },
+      "decisions": [
+        {
+          "id": "node",
+          "level": 2,
+          "num": 1,
+          "type": "SELECT",
+          "action": {
+            "id": "CHECK-ORIGIN-FLIGHTS",
+            "type" : "api"
+          }
+        },
+        {
+          "id": "node",
+          "level": 2,
+          "num": 2,
+          "type": "SELECT",
+          "action": {
+            "id": "CHECK-DESTINATION-FLIGHTS",
+            "type" : "api"
+          }
+        }
+      ]
+    },
+    {
+      "id": "node",
+      "level": 1,
+      "num": 2,
+      "type": "SELECT",
+      "action": {
+        "id": "CHECK-CABS",
+        "type" : "api"
+      },
+      "decisions": [
+        {
+          "id": "node",
+          "level": 2,
+          "num": 1,
+          "type": "SELECT",
+          "action": {
+            "id": "OLA",
+            "type" : "api"
+          }
+        },
+        {
+          "id": "node",
+          "level": 2,
+          "num": 2,
+          "type": "SELECT",
+          "action": {
+            "id": "UBER",
+            "type" : "api"
+          }
+        },
+        {
+          "id": "node",
+          "level": 2,
+          "num": 3,
+          "type": "SELECT",
+          "action": {
+            "id": "GOJEK"
+          }
+        }
+      ]
+    },
+    {
+      "id": "node",
+      "level": 1,
+      "num": 3,
+      "type": "SELECT",
+      "action": {
+        "id": "CHECK-BIKE",
+        "type" : "api"
+      },
+      "decisions": [
+        {
+          "id": "node",
+          "level": 2,
+          "num": 1,
+          "type": "SELECT",
+          "action": {
+            "id": "RENT-BIKES",
+            "type" : "api"
+          }
+        },
+        {
+          "id": "node",
+          "level": 2,
+          "num": 2,
+          "type": "SELECT",
+          "action": {
+            "id": "BUY-BIKES",
+            "type" : "api"
+          }
+        },
+        {
+          "id": "node",
+          "level": 2,
+          "num": 3,
+          "type": "SELECT",
+          "action": {
+            "id": "SELL-BIKES",
+            "type" : "api"
+          }
+        }
+      ]
+    }
+  ]
+}
