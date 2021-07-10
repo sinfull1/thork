@@ -1,4 +1,4 @@
-package com.gopaychain.matching;
+package com.gopaychain.thork;
 
 import io.r2dbc.spi.ConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +11,11 @@ import org.springframework.r2dbc.connection.init.ConnectionFactoryInitializer;
 import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator;
 
 @SpringBootApplication
-@EnableR2dbcRepositories(basePackages = "com.gopaychain.matching.repository")
-public class MatchingApplication {
+@EnableR2dbcRepositories(basePackages = {"com.gopaychain.thork.repository"})
+public class ThorkApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MatchingApplication.class, args);
+		SpringApplication.run(ThorkApp.class, args);
 	}
 
 

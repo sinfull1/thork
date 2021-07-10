@@ -1,6 +1,5 @@
-package com.gopaychain.matching.entity.thork;
+package com.gopaychain.thork.entity.thork;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public class AllDecision extends Decision {

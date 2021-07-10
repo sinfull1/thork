@@ -1,4 +1,4 @@
-package com.gopaychain.matching.entity.thork;
+package com.gopaychain.thork.entity.thork;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;

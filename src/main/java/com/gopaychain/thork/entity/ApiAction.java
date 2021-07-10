@@ -1,4 +1,4 @@
-package com.gopaychain.matching.entity.thork;
+package com.gopaychain.thork.entity.thork;
 
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;

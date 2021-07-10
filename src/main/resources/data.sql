@@ -1,26 +1,13 @@
-CREATE TABLE ticket
+CREATE TABLE THORK_STATUS
 (
-    ticketId INTEGER,
-    ticketType VARCHAR (10),
-    userId VARCHAR (100),
-    basePrice DOUBLE
-);
-
-CREATE TABLE intent
-(
-    ticketId INTEGER,
-    ticketType VARCHAR (10),
-    userId VARCHAR (100),
-    basePrice DOUBLE,
-    intentType VARCHAR (10)
-);
-CREATE TABLE user
-(
-    userId VARCHAR (100)
+    RUN_STEP_ID  Varchar(40),
+    runBatchId Varchar(40),
+    starTime  timestamp ,
+    lastTime TIMESTAMP ,
+    status Varchar(10),
+    thorkId Varchar(40),
+    decisionName VARCHAR (40),
+    actionName Varchar (40)
 );
 
 
-CREATE TABLE action
-(
-    actionId VARCHAR (10)
-);
