@@ -1,4 +1,4 @@
-package com.gopaychain.thork.entity;
+package com.gopaychain.thork.model;
 
 
 import lombok.Data;

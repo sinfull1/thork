@@ -2,37 +2,44 @@ package com.gopaychain.thork.controller;
 
 
 import com.gopaychain.thork.container.OrchestrationExecutor;
-import com.gopaychain.thork.entity.ThorkStatus;
+import com.gopaychain.thork.execution.ExecutionEngine;
+import com.gopaychain.thork.execution.ExecutionService;
+import com.gopaychain.thork.model.Decision;
+import com.gopaychain.thork.model.ThorkStatus;
 import com.gopaychain.thork.repository.ThorkStatusRepository;
 import com.gopaychain.thork.service.DecisionObjectLocator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import com.gopaychain.thork.entity.
+
 import java.io.IOException;
 
 @RestController
 public class ThorkController {
 
     @Autowired
-    ThorkStatusRepository thorkStatusRepository;
+    ExecutionEngine executionEngine;
 
     @Autowired
     DecisionObjectLocator decisionObjectLocator;
 
+    @Autowired
+    ExecutionService executionService;
 
-    @PostMapping(value="/queue/thork/{name}")
-    public Mono<ThorkStatus> queue(@RequestParam String name) throws IOException {
-        com.gopaychain.thork.entity.thork.Decision decision = decisionObjectLocator.getDecisionObjectByName(name);
-        OrchestrationExecutor.execute(decision);
+
+    @GetMapping(value="/queue/thork/{name}")
+    public Mono<Object> queue(@PathVariable("name") String name) throws IOException {
+        Decision decision = decisionObjectLocator.getDecisionObjectByName(name);
+        executionEngine.queueExecution(Mono.just(decision));
+        return Mono.just("Queued");
     }
 
 
-    @GetMapping(value="/thork")
-    public Flux<ThorkStatus> getAllRunStatus(@RequestBody ThorkStatus thorkStatus)
-    {
-        return thorkStatusRepository.findAll();
+    @GetMapping(value="/queue/thork/results", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<Object> queue() throws IOException {
+        return executionService.getFlux();
     }
 
 }

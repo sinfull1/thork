@@ -4,7 +4,8 @@
   "num" : 0,
   "type": "ALL",
   "action": {
-    "id": "INITIALIZE-ORCHESTRATION"
+    "id": "INITIALIZE-ORCHESTRATION",
+    "type" : "api"
   },
   "decisions": [
     {

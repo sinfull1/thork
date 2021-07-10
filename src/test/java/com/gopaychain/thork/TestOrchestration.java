@@ -1,18 +1,14 @@
 package com.gopaychain.thork;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gopaychain.thork.container.OrchestrationExecutor;
-import com.gopaychain.thork.entity.thork.Decision;
 import com.gopaychain.thork.service.DecisionObjectLocator;
+import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Test;
-import org.springframework.util.ResourceUtils;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import reactor.util.function.Tuples;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 class TestOrchestration {
 
@@ -35,4 +31,13 @@ class TestOrchestration {
         OrchestrationExecutor.execute(decisionObjectLocator.getDecisionObjectByName("hybridTree"));
         OrchestrationExecutor.results.entrySet().forEach(System.out::println);
     }
+
+    @Test
+    public void test() throws IOException {
+       Mono.just(true).flatMapMany(res->Flux.just("s","d")).subscribe(x->System.out.println(x));
+    }
+
+
+
+
 }

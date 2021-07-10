@@ -1,10 +1,11 @@
-package com.gopaychain.thork.entity.thork;
+package com.gopaychain.thork.model;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import reactor.core.publisher.Mono;
 
 import java.util.HashMap;
 
@@ -21,6 +22,6 @@ import java.util.HashMap;
 public abstract class Action {
 
     private String id;
-    public abstract boolean execute(HashMap<String,Object> results);
+    public abstract Mono<Boolean> execute(HashMap<String,Object> results);
 
 }

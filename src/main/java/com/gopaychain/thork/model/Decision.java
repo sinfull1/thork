@@ -1,4 +1,4 @@
-package com.gopaychain.thork.entity.thork;
+package com.gopaychain.thork.model;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import reactor.core.publisher.Mono;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -28,7 +29,7 @@ public abstract class Decision {
     private List<Decision> decisions;
     private Action action;
 
-    public  abstract void execute(Decision currentDecision, LinkedHashMap<String, Object> results);
+    public  abstract Mono execute(Decision currentDecision, LinkedHashMap<String, Object> results);
 
     public String getId(){
         return id+level+num;
