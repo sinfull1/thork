@@ -34,7 +34,7 @@ class TestOrchestration {
 
     @Test
     public void test() throws IOException {
-       Mono.just(true).flatMapMany(res->Flux.just("s","d")).subscribe(x->System.out.println(x));
+       Mono.just(true).flatMapMany(res->Flux.just("s","d","dehg","sdjh","sdjhg")).subscribe(System.out::println);
     }
 
 
