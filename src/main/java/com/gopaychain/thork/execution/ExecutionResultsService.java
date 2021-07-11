@@ -7,7 +7,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Sinks;
 
 @Component
-public class ExecutionService {
+public class ExecutionResultsService {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -15,7 +15,7 @@ public class ExecutionService {
 
 
 
-    public ExecutionService() {
+    public ExecutionResultsService() {
     }
     public Flux<Object> getFlux() {
         return replaySink.asFlux();

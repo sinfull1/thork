@@ -13,11 +13,12 @@ public class AllDecision extends Decision {
         if (currentDecision.getDecisions() == null) {
             return currentDecision.getAction().execute(results).log().thenReturn(Mono.empty());
         } else {
-          return  currentDecision.getAction().execute(results).flatMapMany(res -> Flux.fromArray(currentDecision.getDecisions().toArray())).
+        return  currentDecision.getAction().execute(results).flatMapMany(res -> Flux.fromArray(currentDecision.getDecisions().toArray())).
                     flatMap(res -> {
                         Decision decisions = (Decision) res;
                         return Mono.just(decisions);
-                    }).map(res-> res.execute(res,results)).last();
+                    }).flatMap(res->res.execute(res,results)).then(Mono.empty());
+
 
         }
     }

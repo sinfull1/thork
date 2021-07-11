@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
 public class ExecutionEngine {
 
     @Autowired
-    ExecutionService executionService;
+    ExecutionResultsService executionResultsService;
 
     public void queueExecution(Mono<Decision> decision) {
         decision.flatMap(dec -> Mono.just(OrchestrationExecutor.execute(dec))).subscribe(res -> {
