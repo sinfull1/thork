@@ -7,7 +7,7 @@ Thork utilizes Json inheritance for construction of orchetration config
 Sample Thork config
 
 
-
+{code}
 {
   "id": "ORDER-ORCHESTRATOR-PATH",
   "level": 0,
@@ -136,3 +136,4 @@ Sample Thork config
     }
   ]
 }
+{code}
