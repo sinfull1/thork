@@ -1,4 +1,4 @@
-package com.gopaychain.thork.entity.thork;
+package com.gopaychain.thork.entity.model;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.HashMap;
-import com.gopaychain.thork.entity.thork.*;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

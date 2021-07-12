@@ -1,6 +1,6 @@
 package com.gopaychain.thork.container;
 
-import com.gopaychain.thork.entity.thork.Decision;
+import com.gopaychain.thork.entity.model.Decision;
 
 import java.util.LinkedHashMap;
 
