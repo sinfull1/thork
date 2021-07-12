@@ -1,9 +1,11 @@
-package com.gopaychain.thork.entity.model;
+package com.gopaychain.thork.model;
+
+import com.gopaychain.thork.model.Action;
 
 import java.util.HashMap;
 import java.util.Random;
 
-public class CommandAction extends Action{
+public class CommandAction extends Action {
     @Override
     public boolean execute(HashMap<String,Object> results) {
         System.out.println("Executing Command action "+ super.getId());

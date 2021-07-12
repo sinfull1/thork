@@ -4,7 +4,7 @@ package com.gopaychain.thork.service;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gopaychain.thork.entity.model.Decision;
+import com.gopaychain.thork.model.Decision;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
@@ -23,8 +23,8 @@ public class DecisionObjectLocator {
         String json = new String(Files.readAllBytes(Paths.get(file.getAbsolutePath())));
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
-        return objectMapper.readValue(json, Decision.class);
-
+        Decision decision = objectMapper.readValue(json, Decision.class);
+        return decision;
     }
 
 

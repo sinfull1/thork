@@ -1,10 +1,7 @@
-package com.gopaychain.thork.entity;
+package com.gopaychain.thork.model;
 
 
 import lombok.Data;
-import org.springframework.web.bind.annotation.RequestBody;
-
-import javax.persistence.Entity;
 
 
 @Data

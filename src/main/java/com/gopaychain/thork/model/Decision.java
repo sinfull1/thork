@@ -1,4 +1,4 @@
-package com.gopaychain.thork.entity.model;
+package com.gopaychain.thork.model;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -9,6 +9,7 @@ import org.springframework.data.annotation.Id;
 
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 @Data
 @AllArgsConstructor
@@ -27,8 +28,9 @@ public abstract class Decision {
     private int num;
     private List<Decision> decisions;
     private Action action;
+    private Action callback;
 
-    public  abstract void execute(Decision currentDecision, LinkedHashMap<String, Object> results);
+    public  abstract void execute(Decision currentDecision, LinkedHashMap<String, Object> results) throws ExecutionException, InterruptedException;
 
     public String getId(){
         return id+level+num;

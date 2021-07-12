@@ -1,6 +1,5 @@
-package com.gopaychain.thork.entity;
+package com.gopaychain.thork.model;
 
-import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;

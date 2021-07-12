@@ -7,6 +7,10 @@
     "id": "INITIALIZE-ORCHESTRATION",
     "type" : "api"
   },
+  "callback": {
+    "id": "RollBACK-ORCHESTRATION",
+    "type" : "callback"
+  },
   "decisions": [
     {
       "id": "node",
@@ -17,6 +21,10 @@
         "id": "ORDER-ACTION-1",
         "type" : "api"
       },
+      "callback": {
+        "id": "RollBACK-ORCHESTRATION",
+        "type" : "callback"
+      },
       "decisions": [
         {
           "id": "node",
@@ -26,6 +34,10 @@
           "action": {
             "id": "VALIDATE-BUY-ORDER",
             "type" : "api"
+          },
+          "callback": {
+            "id": "RollBACK-ORCHESTRATION",
+            "type" : "callback"
           }
         },
         {
@@ -36,6 +48,10 @@
           "action": {
             "id": "PREPARE-BUY-ORDER",
             "type" : "api"
+          },
+          "callback": {
+            "id": "RollBACK-ORCHESTRATION",
+            "type" : "callback"
           }
         }
       ]
@@ -49,6 +65,10 @@
         "id": "ORDER-ACTION-2",
         "type" : "api"
       },
+      "callback": {
+        "id": "RollBACK-ORCHESTRATION",
+        "type" : "callback"
+      },
       "decisions": [
         {
           "id": "node",
@@ -58,6 +78,10 @@
           "action": {
             "id": "CHECK-BUY-ORDER-EXISTS-IN-DB",
             "type" : "api"
+          },
+          "callback": {
+            "id": "RollBACK-ORCHESTRATION",
+            "type" : "callback"
           }
         },
         {
@@ -68,6 +92,10 @@
           "action": {
             "id": "CHECK-BUY-ORDER-PRICE-RANGE",
             "type" : "api"
+          },
+          "callback": {
+            "id": "RollBACK-ORCHESTRATION",
+            "type" : "callback"
           }
         },
         {
@@ -78,6 +106,10 @@
           "action": {
             "id": "CHECK-BUY-ORDER-QUANTITY",
             "type" : "api"
+          },
+          "callback": {
+            "id": "RollBACK-ORCHESTRATION",
+            "type" : "callback"
           }
         }
       ]
@@ -91,6 +123,10 @@
         "id": "ORDER-ACTION-3",
         "type" : "api"
       },
+      "callback": {
+        "id": "RollBACK-ORCHESTRATION",
+        "type" : "callback"
+      },
       "decisions": [
         {
           "id": "node",
@@ -100,6 +136,10 @@
           "action": {
             "id": "RESERVE-BUY-ORDER-QUANTITY",
             "type" : "api"
+          },
+          "callback": {
+            "id": "RollBACK-ORCHESTRATION",
+            "type" : "callback"
           }
         },
         {
@@ -110,6 +150,10 @@
           "action": {
             "id": "RESERVE-BUY-ORDER-MONEY",
             "type" : "api"
+          },
+          "callback": {
+            "id": "RollBACK-ORCHESTRATION",
+            "type" : "callback"
           }
         },
         {
@@ -120,6 +164,10 @@
           "action": {
             "id": "EXECUTE-BUY-ORDER-QUANTITY",
             "type" : "api"
+          },
+          "callback": {
+            "id": "RollBACK-ORCHESTRATION",
+            "type" : "callback"
           }
         }
       ]
