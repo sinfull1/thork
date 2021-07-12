@@ -9,23 +9,23 @@ import java.util.concurrent.ExecutionException;
 public class SelectDecision extends Decision {
 
     @Override
-    public void execute(Decision currentDecision, LinkedHashMap<String, Object> results) throws ExecutionException, InterruptedException {
+    public void execute(Decision currentDecision, LinkedHashMap<String, Object> results,LinkedHashMap<String, Object> rollback) throws ExecutionException, InterruptedException {
         if (currentDecision.getDecisions() == null) {
             if (currentDecision.getAction().execute(results)) {
-
+                rollback.put(currentDecision.getOnFail().getId(),currentDecision.getOnFail());
             } else {
-                currentDecision.getCallback().execute(results);
-                currentDecision.execute(currentDecision,results);
+                currentDecision.getOnFail().execute(results);
+                currentDecision.execute(currentDecision,results,rollback);
             }
         } else {
             if (currentDecision.getDecisions() != null) {
                 if (currentDecision.getAction().execute(results)) {
-
                     Decision nextDecision = currentDecision.getDecisions().get(new Random().nextInt(currentDecision.getDecisions().size()));
-                    nextDecision.execute(nextDecision,results);
+                    rollback.put(currentDecision.getOnFail().getId(),currentDecision.getOnFail());
+                    nextDecision.execute(nextDecision,results,rollback);
                 } else {
-                    currentDecision.getCallback().execute(results);
-                    currentDecision.execute(currentDecision,results);
+                    currentDecision.getOnFail().execute(results);
+                    currentDecision.execute(currentDecision,results,rollback);
                 }
             }
 

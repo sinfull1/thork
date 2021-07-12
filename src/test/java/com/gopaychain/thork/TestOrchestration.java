@@ -13,19 +13,22 @@ class TestOrchestration {
 
     @Test
     public void testDumbExecute() throws IOException, ExecutionException, InterruptedException {
-        OrchestrationExecutor.execute(decisionObjectLocator.getDecisionObjectByName("dumbTree"));
-        OrchestrationExecutor.results.entrySet().forEach(System.out::println);
+        OrchestrationExecutor orchestrationExecutor = new OrchestrationExecutor();
+        orchestrationExecutor.execute(decisionObjectLocator.getDecisionObjectByName("dumbTree"));
+        //orchestrationExecutor.getResults().entrySet().forEach(System.out::println);
+        orchestrationExecutor.getRollback().entrySet().forEach(System.out::println);
     }
     @Test
     public void testSmartExecute() throws IOException, ExecutionException, InterruptedException {
-
-        OrchestrationExecutor.execute(decisionObjectLocator.getDecisionObjectByName("smartTree"));
-        OrchestrationExecutor.results.entrySet().forEach(System.out::println);
+        OrchestrationExecutor orchestrationExecutor = new OrchestrationExecutor();
+        orchestrationExecutor.execute(decisionObjectLocator.getDecisionObjectByName("smartTree"));
+        orchestrationExecutor.getResults().entrySet().forEach(System.out::println);
     }
 
     @Test
     public void testHybridExecute() throws IOException, ExecutionException, InterruptedException {
-        OrchestrationExecutor.execute(decisionObjectLocator.getDecisionObjectByName("hybridTree"));
-        OrchestrationExecutor.results.entrySet().forEach(System.out::println);
+        OrchestrationExecutor orchestrationExecutor = new OrchestrationExecutor();
+        orchestrationExecutor.execute(decisionObjectLocator.getDecisionObjectByName("hybridTree"));
+        orchestrationExecutor.getResults().entrySet().forEach(System.out::println);
     }
 }

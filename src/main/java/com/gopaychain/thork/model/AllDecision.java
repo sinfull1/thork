@@ -6,22 +6,27 @@ import java.util.concurrent.ExecutionException;
 public class AllDecision extends Decision {
 
     @Override
-    public void execute(Decision currentDecision, LinkedHashMap<String, Object> results) throws ExecutionException, InterruptedException {
+    public void execute(Decision currentDecision, LinkedHashMap<String, Object> results,LinkedHashMap<String, Object> rollback
+    )
+            throws ExecutionException, InterruptedException {
         if (currentDecision.getDecisions() == null) {
 
             if (currentDecision.getAction().execute(results)) {
+                rollback.put(currentDecision.getOnFail().getId(),currentDecision.getOnFail());
             } else {
-                currentDecision.getCallback().execute(results);
-                currentDecision.execute(currentDecision,results);
+                currentDecision.getOnFail().execute(results);
+                currentDecision.execute(currentDecision,results,rollback);
             }
         } else {
             if (currentDecision.getAction().execute(results)) {
+                rollback.put(currentDecision.getOnFail().getId(),currentDecision.getOnFail());
                 for (Decision decision : currentDecision.getDecisions()) {
-                    decision.execute(decision,results);
+                    decision.execute(decision,results,rollback);
                 }
             } else {
-                currentDecision.getCallback().execute(results);
-                currentDecision.execute(currentDecision,results);
+
+                currentDecision.getOnFail().execute(results);
+                currentDecision.execute(currentDecision,results,rollback);
             }
         }
     }

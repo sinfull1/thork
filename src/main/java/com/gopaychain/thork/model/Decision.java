@@ -28,9 +28,9 @@ public abstract class Decision {
     private int num;
     private List<Decision> decisions;
     private Action action;
-    private Action callback;
+    private Action onFail;
 
-    public  abstract void execute(Decision currentDecision, LinkedHashMap<String, Object> results) throws ExecutionException, InterruptedException;
+    public  abstract void execute(Decision currentDecision, LinkedHashMap<String, Object> results,LinkedHashMap<String, Object> rollback) throws ExecutionException, InterruptedException;
 
     public String getId(){
         return id+level+num;

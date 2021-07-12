@@ -18,9 +18,9 @@ public class ApiAction extends Action {
     @Override
     public boolean execute(HashMap<String,Object> results) throws ExecutionException, InterruptedException {
         System.out.println("Executing API action "+ super.getId());
-        if(new Random().nextBoolean())
+        if(!(Math.random()*100>75))
         {
-            ApiExecutionService.execute(this);
+            results.put(this.getId(), ApiExecutionService.execute(this));
             return true;
         }
         else{

@@ -16,9 +16,9 @@ import java.util.concurrent.ExecutionException;
         use = JsonTypeInfo.Id.NAME,
         property = "type")
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = ApiAction.class, name = "api"),
-        @JsonSubTypes.Type(value = CommandAction.class, name = "command"),
-        @JsonSubTypes.Type(value = CallBackAction.class, name = "callback")
+        @JsonSubTypes.Type(value = ApiAction.class, name = "API"),
+        @JsonSubTypes.Type(value = CommandAction.class, name = "COMMAND"),
+        @JsonSubTypes.Type(value = OnFail.class, name = "ON-FAIL")
 })
 public abstract class Action {
 

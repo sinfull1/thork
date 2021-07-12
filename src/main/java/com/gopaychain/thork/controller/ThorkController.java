@@ -24,7 +24,8 @@ public class ThorkController {
     @GetMapping(value="/queue/thork/{name}")
     public Mono<String> queue(@PathVariable("name") String name) throws IOException, ExecutionException, InterruptedException {
         Decision decision = decisionObjectLocator.getDecisionObjectByName(name);
-        OrchestrationExecutor.execute(decision);
+        OrchestrationExecutor orchestrationExecutor = new OrchestrationExecutor();
+        orchestrationExecutor.execute(decision);
         return Mono.just("Queued");
     }
 
