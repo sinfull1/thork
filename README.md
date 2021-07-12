@@ -2,7 +2,7 @@
 The Orchestrator
 
 Thork is a fully non blocking ochestrator capable of orchestrating api,command,repository actions to define a end-to-end sagas.
-Thork utilizes Json inheritance for construction of orchetration config
+Thork utilizes Json inheritance for construction of orchestration config
 
 Sample Thork config
 
