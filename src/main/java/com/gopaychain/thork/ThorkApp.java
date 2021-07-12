@@ -11,7 +11,7 @@ import org.springframework.r2dbc.connection.init.ConnectionFactoryInitializer;
 import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator;
 
 @SpringBootApplication
-@EnableR2dbcRepositories(basePackages = {"com.gopaychain.thork.repository"})
+
 public class ThorkApp {
 
 	public static void main(String[] args) {
