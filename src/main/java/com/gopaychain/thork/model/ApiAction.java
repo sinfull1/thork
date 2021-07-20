@@ -13,8 +13,6 @@ import java.util.concurrent.ExecutionException;
 
 public class ApiAction extends Action {
 
-
-
     @Override
     public boolean execute(HashMap<String,Object> results) throws ExecutionException, InterruptedException {
         System.out.println("Executing API action "+ super.getId());
